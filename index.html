@@ -56,6 +56,45 @@
                 <button class="tab-btn" data-bangun="bola">Bola</button>
             </div>
 
+            <!-- VISUALISASI DAN UNSUR BANGUN -->
+            <section class="visualizer" aria-labelledby="visualizer-title">
+                <div class="visualizer-heading">
+                    <div>
+                        <span class="eyebrow">Kenali bangunnya</span>
+                        <h2 id="visualizer-title">Unsur-unsur Bangun: <span id="visualizer-name">Tabung</span></h2>
+                    </div>
+                    <p id="visualizer-description">Bangun dengan dua alas berbentuk lingkaran yang sejajar dan sebuah selimut.</p>
+                </div>
+
+                <div class="diagram-wrap" role="img" aria-label="Ilustrasi unsur-unsur tabung">
+                    <svg id="diagram-tabung" class="diagram active" viewBox="0 0 620 340" aria-hidden="false">
+                        <defs><linearGradient id="tubeFill" x1="0" x2="1"><stop stop-color="#8fa7ff"/><stop offset="1" stop-color="#667eea"/></linearGradient><marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#536bd1" stroke-width="1.5"/></marker></defs>
+                        <path d="M155 80 C155 52 465 52 465 80 L465 250 C465 278 155 278 155 250Z" fill="url(#tubeFill)" opacity=".92"/>
+                        <ellipse cx="310" cy="80" rx="155" ry="28" fill="#b9c6ff" stroke="#536bd1" stroke-width="3"/><path d="M155 80 C155 108 465 108 465 80" fill="none" stroke="#536bd1" stroke-width="2" opacity=".45"/><path d="M155 250 C155 222 465 222 465 250" fill="none" stroke="#536bd1" stroke-width="2"/><ellipse cx="310" cy="250" rx="155" ry="28" fill="#7188ed" stroke="#536bd1" stroke-width="3" opacity=".9"/>
+                        <line x1="310" y1="80" x2="310" y2="250" stroke="#536bd1" stroke-width="3" stroke-dasharray="8 7"/><line x1="310" y1="80" x2="435" y2="80" stroke="#536bd1" stroke-width="3" marker-end="url(#arrowBlue)"/><text x="365" y="70" class="diagram-label">r (jari-jari)</text>
+                        <line x1="500" y1="80" x2="500" y2="250" stroke="#536bd1" stroke-width="2" marker-start="url(#arrowBlue)" marker-end="url(#arrowBlue)"/><text x="510" y="170" class="diagram-label">t (tinggi)</text><text x="285" y="76" class="diagram-label small">O</text><text x="270" y="310" class="diagram-label">alas &amp; tutup</text>
+                    </svg>
+                    <svg id="diagram-kerucut" class="diagram" viewBox="0 0 620 340" aria-hidden="true">
+                        <defs><linearGradient id="coneFill" x1="0" x2="1"><stop stop-color="#b3c0ff"/><stop offset="1" stop-color="#764ba2"/></linearGradient></defs>
+                        <path d="M310 38 L145 260 Q310 305 475 260Z" fill="url(#coneFill)" opacity=".92"/><ellipse cx="310" cy="260" rx="165" ry="45" fill="#8798ee" stroke="#536bd1" stroke-width="3"/><path d="M145 260 Q310 215 475 260" fill="none" stroke="#536bd1" stroke-width="2" opacity=".5"/><line x1="310" y1="38" x2="310" y2="260" stroke="#536bd1" stroke-width="3" stroke-dasharray="8 7"/><line x1="310" y1="38" x2="448" y2="260" stroke="#536bd1" stroke-width="3"/><line x1="310" y1="260" x2="448" y2="260" stroke="#536bd1" stroke-width="3" marker-end="url(#arrowBlue)"/><text x="380" y="150" class="diagram-label">s (garis pelukis)</text><text x="320" y="160" class="diagram-label">t (tinggi)</text><text x="380" y="250" class="diagram-label">r</text><text x="299" y="32" class="diagram-label small">puncak</text><text x="245" y="325" class="diagram-label">alas lingkaran</text>
+                    </svg>
+                    <svg id="diagram-bola" class="diagram" viewBox="0 0 620 340" aria-hidden="true">
+                        <defs><radialGradient id="ballFill" cx="35%" cy="25%"><stop stop-color="#d8deff"/><stop offset=".55" stop-color="#8295f3"/><stop offset="1" stop-color="#586ccf"/></radialGradient></defs>
+                        <circle cx="310" cy="170" r="120" fill="url(#ballFill)" stroke="#536bd1" stroke-width="3"/><ellipse cx="310" cy="170" rx="120" ry="42" fill="none" stroke="#536bd1" stroke-width="2" stroke-dasharray="7 6" opacity=".7"/><ellipse cx="310" cy="170" rx="42" ry="120" fill="none" stroke="#536bd1" stroke-width="2" stroke-dasharray="7 6" opacity=".7"/><line x1="310" y1="170" x2="410" y2="115" stroke="#536bd1" stroke-width="3" marker-end="url(#arrowBlue)"/><text x="370" y="105" class="diagram-label">r (jari-jari)</text><circle cx="310" cy="170" r="5" fill="#364aa8"/><text x="285" y="195" class="diagram-label">O (pusat)</text><text x="244" y="320" class="diagram-label">permukaan lengkung</text>
+                    </svg>
+                </div>
+
+                <div id="elements-tabung" class="element-list active">
+                    <span><b>r</b> Jari-jari alas</span><span><b>d</b> Diameter = 2r</span><span><b>t</b> Tinggi tabung</span><span><b>O</b> Pusat alas</span><span><b>2</b> Sisi lingkaran</span><span><b>1</b> Sisi selimut</span><span><b>2</b> Rusuk lengkung</span><span><b>0</b> Titik sudut</span>
+                </div>
+                <div id="elements-kerucut" class="element-list">
+                    <span><b>r</b> Jari-jari alas</span><span><b>t</b> Tinggi kerucut</span><span><b>s</b> Garis pelukis</span><span><b>O</b> Pusat alas</span><span><b>1</b> Sisi alas</span><span><b>1</b> Sisi selimut</span><span><b>1</b> Rusuk lengkung</span><span><b>1</b> Titik sudut (puncak)</span>
+                </div>
+                <div id="elements-bola" class="element-list">
+                    <span><b>r</b> Jari-jari bola</span><span><b>d</b> Diameter = 2r</span><span><b>O</b> Titik pusat</span><span><b>1</b> Sisi lengkung</span><span><b>0</b> Rusuk</span><span><b>0</b> Titik sudut</span><span>Semua titik permukaan berjarak r dari O</span>
+                </div>
+            </section>
+
             <!-- FORM TABUNG -->
             <div id="tabung-form" class="bangun-form active">
                 <h2>Tabung</h2>

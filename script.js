@@ -105,6 +105,32 @@ function updateInputFields(bangun, jenis) {
     }
 }
 
+// Mengganti ilustrasi dan daftar unsur saat pengguna memilih tab.
+function updateVisualizer(bangun) {
+    const names = {
+        tabung: 'Tabung',
+        kerucut: 'Kerucut',
+        bola: 'Bola'
+    };
+    const descriptions = {
+        tabung: 'Bangun dengan dua alas berbentuk lingkaran yang sejajar dan sebuah selimut.',
+        kerucut: 'Bangun dengan satu alas lingkaran dan satu titik puncak yang dihubungkan selimut.',
+        bola: 'Bangun yang seluruh permukaannya melengkung dan setiap titiknya berjarak sama dari pusat.'
+    };
+
+    document.getElementById('visualizer-name').textContent = names[bangun];
+    document.getElementById('visualizer-description').textContent = descriptions[bangun];
+    document.querySelector('.diagram-wrap').setAttribute('aria-label', `Ilustrasi unsur-unsur ${names[bangun].toLowerCase()}`);
+    document.querySelectorAll('.diagram').forEach(diagram => {
+        const isActive = diagram.id === `diagram-${bangun}`;
+        diagram.classList.toggle('active', isActive);
+        diagram.setAttribute('aria-hidden', String(!isActive));
+    });
+    document.querySelectorAll('.element-list').forEach(list => {
+        list.classList.toggle('active', list.id === `elements-${bangun}`);
+    });
+}
+
 // Event Listeners untuk tab bangun ruang
 document.querySelectorAll('.tab-btn').forEach(button => {
     button.addEventListener('click', function() {
@@ -118,6 +144,7 @@ document.querySelectorAll('.tab-btn').forEach(button => {
         // Tampilkan form yang sesuai
         const bangun = this.getAttribute('data-bangun');
         document.getElementById(`${bangun}-form`).classList.add('active');
+        updateVisualizer(bangun);
         
         // Reset hasil
         document.getElementById('hasil-nilai').innerHTML = '';
@@ -145,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateInputFields('tabung', 'volume_luas');
     updateInputFields('kerucut', 'volume_luas');
     updateInputFields('bola', 'volume_luas');
+    updateVisualizer('tabung');
 });
 
 // ===== FUNGSI PERHITUNGAN TABUNG =====
