@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Kalkulator Bangun Ruang Sisi Lengkung</title>
+  <desc id="desc">Kalkulator volume dan luas tabung, kerucut, dan bola.</desc>
+  <rect width="1200" height="630" fill="#667eea"/>
+  <rect x="45" y="45" width="1110" height="540" rx="36" fill="#764ba2" opacity=".75"/>
+  <g fill="white" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="270" font-size="64" font-weight="700">Kalkulator Bangun Ruang</text>
+    <text x="600" y="350" font-size="42">Tabung • Kerucut • Bola</text>
+    <text x="600" y="430" font-size="28">Volume dan luas dengan langkah lengkap</text>
+  </g>
+</svg>

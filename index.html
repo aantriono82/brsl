@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Bangun Ruang Sisi Lengkung</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Kalkulator online untuk menghitung volume, luas permukaan, dan luas selimut bangun ruang sisi lengkung (tabung, kerucut, bola) dengan langkah penyelesaian detail.">
+    <meta name="keywords" content="kalkulator matematika, bangun ruang, tabung, kerucut, bola, volume, luas permukaan, luas selimut, matematika SMP">
+    <meta name="author" content="Aan Triono">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kalkulator-bangun-ruang.vercel.app/">
+    <meta property="og:title" content="Kalkulator Bangun Ruang Sisi Lengkung">
+    <meta property="og:description" content="Hitung volume, luas permukaan, dan luas selimut tabung, kerucut, dan bola dengan langkah penyelesaian lengkap!">
+    <meta property="og:image" content="https://kalkulator-bangun-ruang.vercel.app/og-image.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kalkulator Bangun Ruang Sisi Lengkung">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://kalkulator-bangun-ruang.vercel.app/">
+    <meta name="twitter:title" content="Kalkulator Bangun Ruang Sisi Lengkung">
+    <meta name="twitter:description" content="Hitung volume, luas permukaan, dan luas selimut tabung, kerucut, dan bola dengan langkah penyelesaian lengkap!">
+    <meta name="twitter:image" content="https://kalkulator-bangun-ruang.vercel.app/twitter-image.svg">
+    
+    <!-- WhatsApp Sharing -->
+    <meta property="og:site_name" content="Kalkulator Matematika">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    <meta name="theme-color" content="#667eea">
+    <link rel="canonical" href="https://kalkulator-bangun-ruang.vercel.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><radialGradient id=%22grad%22 cx=%2250%25%22 cy=%2250%25%22 r=%2250%25%22><stop offset=%220%25%22 stop-color=%22%23667eea%22/><stop offset=%22100%25%22 stop-color=%22%23764ba2%22/></radialGradient></defs><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22url(%23grad)%22/></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+       <div class="container">
+        <header>
+            <h1>Kalkulator Bangun Ruang Sisi Lengkung</h1>
+            <p>Hitung volume, luas permukaan, dan luas selimut dengan langkah penyelesaian</p>
+        </header>
+
+        <main>
+            <div class="bangun-pilihan">
+                <button class="tab-btn active" data-bangun="tabung">Tabung</button>
+                <button class="tab-btn" data-bangun="kerucut">Kerucut</button>
+                <button class="tab-btn" data-bangun="bola">Bola</button>
+            </div>
+
+            <!-- FORM TABUNG -->
+            <div id="tabung-form" class="bangun-form active">
+                <h2>Tabung</h2>
+                <div class="form-group">
+                    <label for="tabung-jenis">Jenis Perhitungan:</label>
+                    <select id="tabung-jenis" class="form-control">
+                        <option value="volume_luas">Hitung Volume & Luas</option>
+                        <option value="jari_volume">Cari Jari-jari dari Volume</option>
+                        <option value="tinggi_volume">Cari Tinggi dari Volume</option>
+                        <option value="jari_luas_selimut">Cari Jari-jari dari Luas Selimut</option>
+                        <option value="tinggi_luas_selimut">Cari Tinggi dari Luas Selimut</option>
+                        <option value="jari_luas_permukaan">Cari Jari-jari dari Luas Permukaan</option>
+                        <option value="tinggi_luas_permukaan">Cari Tinggi dari Luas Permukaan</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="tabung-jari">Jari-jari (cm):</label>
+                        <input type="number" id="tabung-jari" step="any" placeholder="Masukkan jari-jari">
+                    </div>
+                    <div class="input-field">
+                        <label for="tabung-tinggi">Tinggi (cm):</label>
+                        <input type="number" id="tabung-tinggi" step="any" placeholder="Masukkan tinggi">
+                    </div>
+                    <div class="input-field">
+                        <label for="tabung-volume">Volume (cm³):</label>
+                        <input type="number" id="tabung-volume" step="any" placeholder="Masukkan volume">
+                    </div>
+                    <div class="input-field">
+                        <label for="tabung-luas-selimut">Luas Selimut (cm²):</label>
+                        <input type="number" id="tabung-luas-selimut" step="any" placeholder="Masukkan luas selimut">
+                    </div>
+                    <div class="input-field">
+                        <label for="tabung-luas-permukaan">Luas Permukaan (cm²):</label>
+                        <input type="number" id="tabung-luas-permukaan" step="any" placeholder="Masukkan luas permukaan">
+                    </div>
+                </div>
+
+                <button onclick="hitungTabung()" class="btn-hitung">Hitung</button>
+            </div>
+
+            <!-- FORM KERUCUT -->
+            <div id="kerucut-form" class="bangun-form">
+                <h2>Kerucut</h2>
+                <div class="form-group">
+                    <label for="kerucut-jenis">Jenis Perhitungan:</label>
+                    <select id="kerucut-jenis" class="form-control">
+                        <option value="volume_luas">Hitung Volume & Luas</option>
+                        <option value="jari_volume">Cari Jari-jari dari Volume</option>
+                        <option value="tinggi_volume">Cari Tinggi dari Volume</option>
+                        <option value="jari_luas_selimut">Cari Jari-jari dari Luas Selimut</option>
+                        <option value="tinggi_luas_selimut">Cari Tinggi dari Luas Selimut</option>
+                        <option value="jari_luas_permukaan">Cari Jari-jari dari Luas Permukaan</option>
+                        <option value="tinggi_luas_permukaan">Cari Tinggi dari Luas Permukaan</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="kerucut-jari">Jari-jari (cm):</label>
+                        <input type="number" id="kerucut-jari" step="any" placeholder="Masukkan jari-jari">
+                    </div>
+                    <div class="input-field">
+                        <label for="kerucut-tinggi">Tinggi (cm):</label>
+                        <input type="number" id="kerucut-tinggi" step="any" placeholder="Masukkan tinggi">
+                    </div>
+                    <div class="input-field">
+                        <label for="kerucut-volume">Volume (cm³):</label>
+                        <input type="number" id="kerucut-volume" step="any" placeholder="Masukkan volume">
+                    </div>
+                    <div class="input-field">
+                        <label for="kerucut-luas-selimut">Luas Selimut (cm²):</label>
+                        <input type="number" id="kerucut-luas-selimut" step="any" placeholder="Masukkan luas selimut">
+                    </div>
+                    <div class="input-field">
+                        <label for="kerucut-luas-permukaan">Luas Permukaan (cm²):</label>
+                        <input type="number" id="kerucut-luas-permukaan" step="any" placeholder="Masukkan luas permukaan">
+                    </div>
+                </div>
+
+                <button onclick="hitungKerucut()" class="btn-hitung">Hitung</button>
+            </div>
+
+            <!-- FORM BOLA -->
+            <div id="bola-form" class="bangun-form">
+                <h2>Bola</h2>
+                <div class="form-group">
+                    <label for="bola-jenis">Jenis Perhitungan:</label>
+                    <select id="bola-jenis" class="form-control">
+                        <option value="volume_luas">Hitung Volume & Luas</option>
+                        <option value="jari_volume">Cari Jari-jari dari Volume</option>
+                        <option value="jari_luas_permukaan">Cari Jari-jari dari Luas Permukaan</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="bola-jari">Jari-jari (cm):</label>
+                        <input type="number" id="bola-jari" step="any" placeholder="Masukkan jari-jari">
+                    </div>
+                    <div class="input-field">
+                        <label for="bola-volume">Volume (cm³):</label>
+                        <input type="number" id="bola-volume" step="any" placeholder="Masukkan volume">
+                    </div>
+                    <div class="input-field">
+                        <label for="bola-luas-permukaan">Luas Permukaan (cm²):</label>
+                        <input type="number" id="bola-luas-permukaan" step="any" placeholder="Masukkan luas permukaan">
+                    </div>
+                </div>
+
+                <button onclick="hitungBola()" class="btn-hitung">Hitung</button>
+            </div>
+
+            <!-- HASIL PERHITUNGAN -->
+            <div id="hasil" class="hasil-container" aria-live="polite">
+                <h3>Hasil Perhitungan</h3>
+                <div id="hasil-nilai" class="hasil-nilai"></div>
+                <div id="langkah-penyelesaian" class="langkah-penyelesaian"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p> &copy; 2025 | Dibuat dengan ❤️ oleh Aan Triono</p>
+            <!-- Tambahkan ini di dalam footer, setelah paragraf yang sudah ada -->
+<div class="share-section">
+   <!-- <p>Bagikan kalkulator ini:</p> -->
+    <div class="share-buttons">
+        <button type="button" class="share-btn whatsapp" title="Share via WhatsApp" aria-label="Bagikan melalui WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4-.2-.4c-.8-1.5-1.3-3.2-1.3-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"/></svg>
+        </button>
+        <button type="button" class="share-btn facebook" title="Share via Facebook" aria-label="Bagikan melalui Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </button>
+        <button type="button" class="share-btn twitter" title="Share via X/Twitter" aria-label="Bagikan melalui X atau Twitter">
+            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.213c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        </button>
+        <button type="button" class="share-btn instagram" title="Share via Instagram" aria-label="Salin tautan untuk Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </button>
+        <button type="button" class="share-btn telegram" title="Share via Telegram" aria-label="Bagikan melalui Telegram">
+            <svg viewBox="0 0 24 24"><path d="M23.91 3.79L20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.55-1.1.55l.4-5.65 10.2-9.23c.45-.4-.1-.62-.69-.22L6.69 13.1 1.5 11.5c-1.18-.37-1.19-1.16.26-1.75l21.26-8.2c.98-.35 1.8.24 1.4 1.24z"/></svg>
+        </button>
+        <button type="button" class="share-btn copy-link" title="Copy link" aria-label="Salin tautan halaman">
+    <svg viewBox="0 0 24 24">
+        <path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24zm2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"/>
+    </svg>
+</button>
+    </div>
+    <div id="copy-notification" class="copy-notification">Link berhasil disalin!</div>
+</div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

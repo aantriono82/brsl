@@ -1,0 +1,581 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.bangun-pilihan {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: white;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.bangun-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+    display: none;
+}
+
+.bangun-form.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bangun-form h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-field input {
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-hitung {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-hitung:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.hasil-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hasil-container h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.hasil-nilai {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.hasil-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.hasil-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.hasil-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.hasil-value {
+    font-weight: bold;
+    color: #667eea;
+}
+
+.langkah-penyelesaian {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #28a745;
+}
+
+.langkah-penyelesaian h4 {
+    color: #28a745;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.langkah {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.langkah:last-child {
+    margin-bottom: 0;
+}
+
+.langkah-nomor {
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 8px;
+}
+
+.rumus {
+    font-family: 'Courier New', monospace;
+    background: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border-left: 3px solid #667eea;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    opacity: 0.8;
+}
+
+/* Tambahkan di style.css sebelum media queries */
+
+/* Memastikan input mudah disentuh di mobile */
+@media (max-width: 768px) {
+    input[type="number"], select, .btn-hitung {
+        font-size: 16px; /* Mencegah zoom otomatis di iOS */
+        touch-action: manipulation; /* Meningkatkan responsifitas sentuhan */
+    }
+    
+    .input-field input, .form-control {
+        min-height: 44px; /* Minimum touch target size untuk mobile */
+    }
+    
+    .btn-hitung {
+        min-height: 50px;
+    }
+}
+
+/* Mencegah overflow horizontal */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Memastikan container tidak melebar terlalu jauh */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Memperbaiki scroll untuk langkah penyelesaian di mobile */
+.langkah-penyelesaian {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Memperbaiki notifikasi copy */
+@media (max-width: 480px) {
+    .copy-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .bangun-pilihan {
+        flex-direction: column;
+    }
+    
+    .input-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .bangun-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tab-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .hasil-container, .bangun-form {
+        padding: 15px;
+    }
+}
+
+/* Tambahkan di akhir file CSS */
+.share-section {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.share-section p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: white;
+    opacity: 0.9;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.share-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.whatsapp {
+    background-color: #25D366;
+}
+
+.facebook {
+    background-color: #1877F2;
+}
+
+.twitter {
+    background-color: #1DA1F2;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.telegram {
+    background-color: #0088CC;
+}
+
+.copy-link {
+    background-color: #d93511;
+}
+
+.copy-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.copy-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive untuk tombol share */
+@media (max-width: 768px) {
+    .share-buttons {
+        gap: 8px;
+    }
+    
+    .share-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .share-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* PERBAIKAN KHUSUS UNTUK TOMBOL SHARE DI HP */
+/* HP kecil (lebar <= 480px) */
+@media (max-width: 480px) {
+    /* Perbaikan untuk footer */
+    footer {
+        margin-top: 20px !important;
+        padding: 15px 10px !important;
+        position: relative;
+        z-index: 10;
+    }
+    
+    /* Perbaikan untuk share section */
+    .share-section {
+        margin-top: 10px !important;
+        padding: 10px 0 !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: none !important;
+        background: none !important;
+        backdrop-filter: none !important;
+    }
+    
+    .share-section p {
+        margin-bottom: 12px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: block !important;
+        opacity: 1 !important;
+    }
+    
+    /* Perbaikan untuk share buttons */
+    .share-buttons {
+        gap: 6px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    
+    .share-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        flex-shrink: 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .share-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Pastikan container footer tidak overflow */
+    .container {
+        padding-bottom: 10px !important;
+    }
+    
+    /* Hapus animasi yang mungkin mengganggu */
+    .share-section {
+        animation: none !important;
+    }
+    
+    /* Perbaikan tambahan untuk HP kecil 
+    footer {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 30px;
+        backdrop-filter: blur(10px);
+    }
+    
+    footer p {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    } */
+}
+
+/* HP sangat kecil (lebar <= 360px) */
+@media (max-width: 360px) {
+    .share-buttons {
+        gap: 4px;
+    }
+    
+    .share-btn {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+    
+    .share-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Perbaikan untuk scroll di mobile */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    
+    .container {
+        min-height: calc(100vh - 100px);
+    }
+    
+    .bangun-form:last-of-type {
+        margin-bottom: 30px;
+    }
+}
+
+/* Pastikan tombol share selalu terlihat */
+.share-section {
+    position: relative;
+    z-index: 10;
+}
+
+/* Animasi untuk menarik perhatian ke share buttons (opsional) 
+@media (max-width: 480px) {
+    .share-section {
+        animation: pulse 2s ease-in-out;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+    }
+} */
